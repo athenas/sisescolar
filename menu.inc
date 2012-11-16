@@ -27,6 +27,7 @@
         				<ul class="sub_menu">
         				<li><a href="/Financeiro/titulo.php">Novo Boleto</a></li>
         				<li><a href="/Financeiro/carne.php">Imprimir Carne</a></li>
+        				<li><a href="/Financeiro/baixa.php">Baixar</a></li>
         				</ul>
         			</li>
         			
