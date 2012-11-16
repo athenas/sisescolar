@@ -79,8 +79,8 @@
    					 		<option value='0'>SELECIONE...</option>
    					 		<?php
 								
-								if ($_SESSION['serie'] <=-1) { echo "<option value='-1'> PRE I</option>;}
-								if ($_SESSION['serie'] <= 0) { echo "<option value='0'>PRE II</option>;}
+								if ($_SESSION['serie'] <=-1) { echo "<option value='-1'> PRE I</option>";}
+								if ($_SESSION['serie'] <= 0) { echo "<option value='0'>PRE II</option>";}
    					 			if ($_SESSION['serie'] <= 1) { echo "<option value='1'>ENSINO FUNDAMENTAL I - 1&deg; Ano</option>"; }
 	   					 		if ($_SESSION['serie'] <= 2) { echo "<option value='2'>ENSINO FUNDAMENTAL I - 2&deg; Ano</option>"; }
 	   					 		if ($_SESSION['serie'] <= 3) { echo "<option value='3'>ENSINO FUNDAMENTAL I - 3&deg; Ano</option>"; }
