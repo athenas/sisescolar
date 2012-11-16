@@ -53,8 +53,7 @@
 						 	}
 							if ($_REQUEST['msg'] == 'nav'){
 						 		echo "<span style='color:red;'>Navegador e/ou versao incompativel.<br/> Usar Firefox 16 ou superior </span>";
-						 	}
-							  
+						 	} 
 						?>
 						</center>
    				
