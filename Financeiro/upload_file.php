@@ -1,5 +1,4 @@
 <?
-
 session_start();
 /* Insira aqui a pasta que deseja salvar o arquivo*/
 $uploaddir = "/tmp/";
