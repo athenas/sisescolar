@@ -18,28 +18,41 @@
    
    
 	<script>
+	function selectitem(objecValuetId, value, objectTextId, text){
+		document.forms[0][objecValuetId].value = value;
+		document.forms[0][objectTextId].value = text;
+		$( "#dialog" ).dialog("close");
+		return false;
+		
+	}
+	
 	$(function() {
+		$("#dialog").dialog( {modal: true, autoOpen: false, width: 700, height: 400} );
 		$( "#tabs" ).tabs();
         $( "#btnpesq" ).click(function(){
-        	_cpf = $("#cpf").val()
-        	$.ajax({
-			  url: '../Secretaria/search.php',
-			  dataType: 'json',
-			  data: { consulta: 'pessoa',cpf:_cpf  },
-			  
-			  success: function(json){
-			  	$("#pessoa_nome").val(json.cNome);
-			 
-			  
-			  }
-			  
-			});
-        	
+        	_cpf = $("#cpf").val();
+        	if (_cpf == ""){
+        		$( "#dialog" ).dialog("open");
+        		
+        	}else{
+	        	$.ajax({
+				  url: '../Secretaria/search.php',
+				  dataType: 'json',
+				  data: { consulta: 'pessoa',cpf:_cpf  },
+				  
+				  success: function(json){
+				  	$("#pessoa_nome").val(json.cNome);
+				 
+				  
+				  }
+				  
+				});
+        	}
         });
     });
 	
     </script>
-	</script>
+   
 </head>
 
 <body>
@@ -48,7 +61,9 @@
             <div id="menu"><?php include "../menu.inc"; ?></div>
            
             <div id="content">
-            	
+            	<div id="dialog">
+                		<iframe src="../Pessoa/consultar_popup.php?popup=sim" frameborder="0" width="680" height="300"></iframe> 
+                	</div>
                 <form name="frm1" id="frm1" method="post" action="gerar_parcelas.php">
                 	
                 	<div id="tabs">
