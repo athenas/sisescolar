@@ -78,13 +78,13 @@
             <div id="menu"><?php include "../menu.inc"; ?></div>
            
             <div id="content">
-            	<p><h2>CADASTRO - CONSULTAR</h2></p>
+            	
                 <form method="post" >
                      
                          
                      	<div id="tabs">
                      		<ul>
-                     			<li><a href="#geral">Carne</a></li>
+                     			<li><a href="#geral">Imprimir Carne</a></li>
                      			 			
                      		</ul>
                      	

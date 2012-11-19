@@ -41,6 +41,7 @@
 			$juros = 0;
 			
 		}else{
+			$desconto = 0;
 			$juros = $juros * $dias_diferenca;
 		}
 		

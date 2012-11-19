@@ -46,6 +46,42 @@
 			});
         	
         });
+        
+        $("#btnBaixar").click(function(){
+        	_nossonumero  =$("#nossonumero").val()
+		  	_valor_titulo = $("#valor_titulo").val();
+		  	_valor_desconto = $("#valor_desconto").val();
+		  	_valor_multa = $("#valor_multa").val();
+		  	_valor_juros = $("#valor_juros").val();
+		  	_valor_total = $("#valor_total").val();
+		  	
+        	$.ajax({
+			  url: 'executar_baixa.php',
+			  data: { nossonumero:		_nossonumero
+			  		, valor_titulo:		_valor_titulo
+			  		, valor_desconto:	_valor_desconto
+			  		, valor_multa:		_valor_multa
+			  		, valor_juros:		_valor_juros
+			  		, valor_total:		_valor_total
+			  		},
+			  
+			  success: function(data){
+			  alert(data);
+			  	$("#nossonumero").val("");
+			  	$("#pessoa_nome").val("");
+			  	$("#seunumero").val("");
+			  	$("#vencimento").val("");
+			  	$("#valor_titulo").val("");
+			  	$("#valor_desconto").val("");
+			  	$("#valor_multa").val("");
+			  	$("#valor_juros").val("");
+			  	$("#valor_total").val("");
+			  
+			  }
+			  
+			});
+        	return false;
+        });
     });
 	
     </script>
@@ -59,11 +95,11 @@
            
             <div id="content">
             	
-                <form name="frm1" id="frm1" method="post" action="gerar_parcelas.php">
+                <form name="frm1" id="frm1" >
                 	
                 	<div id="tabs">
                      		<ul>
-                     			<li><a href="#geral">Gerar Titulos</a></li>
+                     			<li><a href="#geral">Baixar Titulos</a></li>
                      			 			
                      		</ul>
                 	
@@ -100,7 +136,7 @@
                  	 
                  	 	<br/>
                  	 	
-                 	 	<button style="margin-top:30px;">Gerar</button>
+                 	 	<button style="margin-top:30px;" id="btnBaixar">Baixar</button>
    					 </div>
    					</div>
                  </form>

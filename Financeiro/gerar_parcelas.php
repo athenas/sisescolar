@@ -40,7 +40,7 @@
 	
 	for($i = 1; $i <= $qtd_parc; $i++){
 		
-		$SeuNum = "90000002013".str_pad( $i,2,"0",STR_PAD_LEFT).str_pad( $qtd_parc,2,"0",STR_PAD_LEFT);
+		$SeuNum = $referencia."0000002013".str_pad( $i,2,"0",STR_PAD_LEFT).str_pad( $qtd_parc,2,"0",STR_PAD_LEFT);
 		if ($tp_vcto == "DU" ){
 			$dVctosql	 		= date('Y-m-d',  fdiautil(($mes_inicio + $i -1), $ano_inicio, $vencimento)); 
 			$dVcto				= date('d/m/Y',  fdiautil(($mes_inicio + $i -1), $ano_inicio, $vencimento)); 
