@@ -36,8 +36,16 @@
             <div id="menu"><?php include "../menu.inc"; ?></div>
            
             <div id="content">
-            	<h2>Relatorio de Inadimplencia</h2>
+            	
                 <form method="post" action="inadimplencia_rel.php" target="_blank">
+                	<div id="tabs">
+                     		<ul>
+                     			<li><a href="#geral">Relat&oacute;rio de Inadimpl&ecirc;ncia</a></li>
+                     			 			
+                     		</ul>
+                	
+                  
+                   <div id="geral" style='height:415px;padding-left: 5px;overflow: auto '>
              	   <fieldset style="padding-top:15px; padding-left:5px; padding-bottom:15px">
 	             	   <legend style="margin-left:10px">Periodo do Relatorio</legend>
 	             	   <label >Data Inicio</label>
@@ -53,7 +61,8 @@
 					    	
 				   </fieldset>
                    <button id="btnProcessar" >Processar</button>
-               
+               </div>
+               </div>
                 </form>
              </div>
              

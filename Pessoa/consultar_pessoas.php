@@ -35,7 +35,7 @@
 		$nome = $registro['cNome'];
 		
 		echo "<tr style='background-color: $color'>";
-		if ($popup = "sim"){
+		if ($popup == "sim"){
 			echo "<td><a href='#' name='selecionar' cpf='$cpf' nome='$nome' >Acessar</a></td>"; 
 		}else{
 			echo "<td><a href='cadastro.php?cpf=$cpf' >Acessar</a></td>";

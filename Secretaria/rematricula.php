@@ -27,6 +27,7 @@
             	$("#cpfresp").val(ui.item.cpfresp);
             }
         });
+        $("#tabs").tabs();
         
         
         
@@ -90,7 +91,15 @@
             <div id="content">
             	
                 <form name="frm1" id="frm1" method="post" action="verificafin.php">
-                     <p><h2>ReMatricula 1/5</h2></p>
+                	
+                    	<div id="tabs">
+                     		<ul>
+                     			<li><a href="#geral">Rematricula 1/5</a></li>
+                     			 			
+                     		</ul>
+                	
+                  
+                   <div id="geral" style='height:415px;padding-left: 5px;overflow: auto '>
                      <div style="height:440px">
                  	 	<label for="nome">Nome: </label>
    					 	<input id="nome" name="nome" size="50" />
@@ -121,6 +130,8 @@
    					 	<input type='hidden' name='irmao_mat' id='irmao_mat' />
    					 <br/>
    					 <button id='send' style='margin-left:360px'>Proximo</button>
+   					 </div>
+   					 </div>
    					 </div>
                  </form>
              </div>

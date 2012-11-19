@@ -70,7 +70,7 @@
             <div id="content">
             	
                 <form method="post" >
-                     <p><h2>CADASTRO - CONSULTAR</h2>
+                     <p><h2>CADASTRO</h2>
                          
                      	<div id="tabs">
                      		<ul>
