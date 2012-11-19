@@ -1,8 +1,7 @@
 <?php
+	ini_set( "display_errors", 1);
 	require("../config.php");
 	include_once "../bd.php";
-	ini_set( "display_errors", 0);
-	
 	
 	
 	 $useragent = $_SERVER['HTTP_USER_AGENT'];
@@ -33,18 +32,21 @@
 	    session_start();
 		$login = $_REQUEST['login'];
 		$senha = $_REQUEST['senha'];
-		$_SESSION['username'] = $login;
+		
 		
 		$query = "call valida_usuario('$login','$senha')";
 		
 		$resultado = consulta('athenas',$query);
 		
+		
 		if (count($resultado) == 0 ){
 			header("location:login.php?msg=err");
 		}else{
 			foreach($resultado as $registro){
-				$_SESSION[$registro['cNmAcesso']] = $registro['bVisualizar'].$registro['bEditar'] .$registro['bIncluir'].$registro['bExcluir'].$registro['bAcessar'];
+				$_SESSION[$registro['cId']] = $registro['bVisualizar'].$registro['bEditar'] .$registro['bIncluir'].$registro['bExcluir'].$registro['bAcessar'];
 			}
+		   $_SESSION['username'] = $login;
+		    
 			header("location:../index.php");
 		}
 	}else{
