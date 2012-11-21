@@ -26,10 +26,12 @@ $dadosboleto["endereco2"] 			= $_REQUEST['endereco2'];
 // INSTRUÇÕES PARA O CAIXA
 $multa 								= number_format($valor_cobrado * 0.1, 2, ',', '');
 $juros 								= number_format($valor_cobrado * 0.0033, 2, ',', '');
-$dadosboleto["instrucoes1"] 		= "- MULTA DE  		R$:   $multa AP&Oacute;S $data_venc";
-$dadosboleto["instrucoes2"] 		= "- JUROS DE  		R$:   $juros AO DIA";
-$dadosboleto["instrucoes3"] 		= "- DESCONTO DE    R$    $desconto AT&Eacute; $data_venc OU PROXIMO DIA UTIL";
-$dadosboleto["instrucoes4"] 		= "NAO RECEBER APOS 30 DIAS DE ATRASO";
+$dadosboleto["instrucoes1"] 		= $_REQUEST['msg1']; 
+$dadosboleto["instrucoes2"] 		= $_REQUEST['msg2']; 
+$dadosboleto["instrucoes3"] 		= $_REQUEST['msg3']; 
+$dadosboleto["instrucoes4"] 		= $_REQUEST['msg4']; 
+$dadosboleto["instrucoes5"] 		= $_REQUEST['msg5']; 
+$dadosboleto["instrucoes6"] 		= $_REQUEST['msg6']; 
 
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 $dadosboleto["quantidade"] 			= "";

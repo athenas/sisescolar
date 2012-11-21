@@ -69,19 +69,15 @@
         		consulta_titulos(_tpConsulta,_cpf);
         	}
 		});
+		
+		
 		$("#btnGerar").click(function(){
 			_valores = "";
 			$('input[name=boleto]:checked').each(function(){
-				_valores = _valores + $(this).val() +';';
-				
+				_valores = _valores  + $(this).val() +','; 
 			});
-			var width = 850;
-			    var height = 600;
-			    var left = parseInt((screen.availWidth/2) - (width/2));
-			    var top = parseInt((screen.availHeight/2) - (height/2));
-			    var windowFeatures = "width=" + width + ",height=" + height + ",scrollbars=yes,status,resizable,left=" + left + ",top=" + top + "screenX=" + left + ",screenY=" + top;
-			   
-			    window.open("../Boleto/gerarboletos.php?nCdBoleto="+_valores, "Contrato", windowFeatures);
+			$("#boletos").val(_valores);
+			$("#frm1").submit();
 			return false;
 			
 		});
@@ -98,12 +94,12 @@
             	<div id="dialog">
                 		<iframe src="../Pessoa/consultar_popup.php?popup=sim" frameborder="0" width="680" height="300"></iframe> 
                 	</div>
-                <form method="post" >
+                <form method="post" id="frm1" action="acordo1.php" >
                      
                          
                      	<div id="tabs">
                      		<ul>
-                     			<li><a href="#geral">Imprimir Carne</a></li>
+                     			<li><a href="#geral">Acordo / Renegocia&ccedil;&atilde;o</a></li>
                      			 			
                      		</ul>
                      	
@@ -115,10 +111,8 @@
 	                 	  <label style="margin-top:5px;">Nome</label>
 	                 	  <input type="text" size="40" name="pessoa_nome" id="pessoa_nome" />
 	                 	  <br/>
-	                 	  
-	                 	  <input name="tpConsulta" type="radio" value="AB" style="margin-top:5px;" >&nbsp;Abertos</input>
-						  <input name="tpConsulta" type="radio" value="AT" style="margin-left:15px" >&nbsp;Atrasados</input>
-						  <input name="tpConsulta" type="radio" value="HJ" style="margin-left:15px" >&nbsp;Hoje</input>
+	                 	  <input name="tpConsulta" type="radio" value="ACAB" style="margin-top:5px;" >&nbsp;Abertos</input>
+						  <input name="tpConsulta" type="radio" value="ACAT" style="margin-left:15px" >&nbsp;Atrasados</input>
 						  <table>
 								<thead>
 									<tr>
@@ -127,11 +121,15 @@
 									<td width='150px'>Seu Numero</td>
 									<td width='100px'>Vencimento</td>
 									<td width='100px'>Valor Titulo</td>
+									<td width='100px'>Valor Multa</td>
+									<td width='100px'>Valor Juros</td>
+									<td width='100px'>Valor Total</td>
 									
 									
 									</tr>
 								</thead>
 							</table>
+							<input type="hidden" id="boletos" name="boletos" />
 						  <div id="titulos_resultado" style="height:260px;overflow: auto"></div>
 						  <button style="margin-left: 680px" id="btnGerar">Imprimir</button>
 						</div>

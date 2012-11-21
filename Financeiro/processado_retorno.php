@@ -83,7 +83,7 @@
 								$liquido 	= $liquido / 100.00;
 
 								$query = "call baixar_titulo('$nosso_numero','$dtmovsql',$pago,$desconto,$acrescimos
-										 ,$juros,$multa,$liquido,$tarifa,'$dtcreditosql','$dttarifasql','$canal','$forma','$float')";
+										 ,$juros,$multa,$liquido,$tarifa,'$dtcreditosql','$dttarifasql','$canal','$forma','$float','06',0)";
 								
 								$resultado = consulta('athenas',$query);
 								

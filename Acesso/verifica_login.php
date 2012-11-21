@@ -42,6 +42,7 @@
 		if (count($resultado) == 0 ){
 			header("location:login.php?msg=err");
 		}else{
+			$_SESSION['nCdUsuario'] = $resultado[0]['nCdUsuario'];
 			foreach($resultado as $registro){
 				$_SESSION[$registro['cId']] = $registro['bVisualizar'].$registro['bEditar'] .$registro['bIncluir'].$registro['bExcluir'].$registro['bAcessar'];
 			}

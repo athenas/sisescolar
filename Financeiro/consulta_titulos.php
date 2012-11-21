@@ -12,29 +12,46 @@
 	
 	$cpf = str_replace(".", "", $cpf);
 	$cpf = str_replace("-", "", $cpf);
+	
+	if (($cpf != "") && ($tipo != "")){
 
-	$query = "SELECT * FROM titulos where nCdPessoa = $cpf";
+		$query = "SELECT * FROM titulos where nCdPessoa = $cpf";
+		
+		if ($tipo == 'BX'){
+			$query .=" and TipDtOcorrencia is not null";
+		}
+		if ($tipo == 'AT'){
+			$query .=" and TipDtOcorrencia is null and dVcto < CURDATE()";
+		}
+		if ($tipo == 'AB'){
+			$query .=" and TipDtOcorrencia is null";
+		}
+		if ($tipo == 'HJ'){
+			$hoje = date('Y-m-d');
+			$query .= " and dEmissao = '$hoje'";
+		}
+		if ($tipo == "ACAB"){
+			$query  = "Select nNossoNumero, SeuNum, dVcto, nVlrTitulo, nVlrJuros * DATEDIFF(CURDATE(),dVcto) AS VlrJuros
+						, nVlrMulta, nVlrTitulo + (nVlrJuros * DATEDIFF(CURDATE(),dVcto)) + nVlrMulta as VlrTotal
+						from titulos where nCdPessoa = $cpf and TipDtocorrencia is null and dVcto < CURDATE()
+						union all 
+						Select nNossoNumero, SeuNum, dVcto, nVlrTitulo, 0, 0, nVlrTitulo
+						from titulos where nCdPessoa = $cpf and TipDtocorrencia is null and dVcto >= CURDATE();";
+		}
+		if ($tipo == "ACAT"){
+			$query = "Select nNossoNumero, SeuNum, dVcto, nVlrTitulo, nVlrJuros * DATEDIFF(CURDATE(),dVcto) AS VlrJuros
+						, nVlrMulta, nVlrTitulo + (nVlrJuros * DATEDIFF(CURDATE(),dVcto)) + nVlrMulta as VlrTotal
+					from titulos where nCdPessoa = $cpf and TipDtocorrencia is null and dVcto < CURDATE()";
+		}
+		$registros = consulta("athenas",$query);
+	}
 	
-	if ($tipo == 'BX'){
-		$query .=" and TipDtOcorrencia is not null";
-	}
-	if ($tipo == 'AT'){
-		$query .=" and TipDtOcorrencia is null and dVcto < now()";
-	}
-	if ($tipo == 'AB'){
-		$query .=" and TipDtOcorrencia is null";
-	}
-	if ($tipo == 'HJ'){
-		$hoje = date('Y-m-d');
-		$query .= " and dEmissao = '$hoje'";
-	}
 	
 	
-	$registros = consulta("athenas",$query);
 ?>
 <table>
 <?php	
-	
+	$total = 0;
 	foreach($registros as $registro){
 		echo "<tr>";
 		
@@ -60,8 +77,21 @@
 			
 			echo "<td width='100px'>".number_format($registro['nVlrPago'],2,",",".")."</td>";
 		}
+		if (($tipo == "ACAB") || ($tipo == "ACAT")){
+			echo "<td width='100px'>".number_format($registro['nVlrMulta'],2,",",".")."</td>";
+			echo "<td width='100px'>".number_format($registro['VlrJuros'],2,",",".")."</td>";
+			echo "<td width='100px'>".number_format($registro['VlrTotal'],2,",",".")."</td>";
+			$total = $total + $registro['VlrTotal'];
+		}
 		
 		echo "</tr>";
 	}
+	if (($tipo == "ACAB") || ($tipo == "ACAT")){
+			echo "<tr>";
+			echo "<td></td><td></td><td></td><td></td><td></td><td></td>";
+			echo "<td width='100px'>".number_format($total,2,",",".")."</td>";
+			echo "</tr>";
+			
+		}
 ?>
 </table>

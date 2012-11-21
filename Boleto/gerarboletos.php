@@ -88,6 +88,12 @@ p.quebra    { page-break-before: always; }
 		'sacado'			=> $registro['cNome'],
 		'endereco1' 		=> $registro['cLogradouro']." - ".$registro['cComplemento']." - ".$registro['cBairro'],
 		'endereco2' 		=> $registro['cCidade']." - ".$registro['cUF']." - ".$registro['nCEP'],
+		'msg1'				=> $registro['cMensagem1'],
+		'msg2'				=> $registro['cMensagem2'],
+		'msg3'				=> $registro['cMensagem3'],
+		'msg4'				=> $registro['cMensagem4'],
+		'msg5'				=> $registro['cMensagem5'],
+		'msg6'				=> $registro['cMensagem6'],
 		'layout'			=> $layout
 		);
 		

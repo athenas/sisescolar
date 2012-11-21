@@ -229,7 +229,9 @@ Valor documento</td></tr><tr> <td class=cp valign=top width=7 height=12><img hei
 <?php echo $dadosboleto["instrucoes1"]; ?><br>
 <?php echo $dadosboleto["instrucoes2"]; ?><br>
 <?php echo $dadosboleto["instrucoes3"]; ?><br>
-<?php echo $dadosboleto["instrucoes4"]; ?></FONT><br><br> 
+<?php echo $dadosboleto["instrucoes4"]; ?><br>
+<?php echo $dadosboleto["instrucoes5"]; ?><br>
+<?php echo $dadosboleto["instrucoes6"]; ?></FONT><br><br> 
 </span></td>
 <td align=right width=188><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=imagens/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>(-) 
 Desconto / Abatimentos</td></tr><tr> <td class=cp valign=top width=7 height=12><img height=12 src=imagens/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12></td></tr><tr> 
