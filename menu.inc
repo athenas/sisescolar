@@ -50,7 +50,10 @@
         	<li><a href="#">Cobranca</a>
         		<ul class="sub_menu">
         			<li><a href="/Relatorio/inadimplencia.php">Relatorio Inadimplencia</a></li>
-        			<li><a href="/construcao.php">Realizar Acordos</a></li>
+        			<li><a href="/Relatorio/carta_cobranca.php">Carta de Cobran&ccedil;a </a></li>
+        			<li><a href="/Relatorio/carta_cobranca_lote.php">Carta de Cobran&ccedil;a - Lote</a></li>
+        			
+        			<li><a href="/Cobranca/acordo.php">Realizar Acordos</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Contabilidade</a>
